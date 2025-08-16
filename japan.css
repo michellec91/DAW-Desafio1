@@ -1,17 +1,15 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 
 h1, h2, h3, h4{
     text-align: center;
     color: #1C1C1C;
 }
 
-body{
+body {
     font-family: Montserrat, sans-serif;
     background-color: #FF543B;
-
+    min-height: 150vh;  
+    background-size: cover;
+    background-position: center;
 }
 
 /*Estilos para nav*/
@@ -28,6 +26,30 @@ nav{
 nav a:hover {
     color: #6B8E23; /* matcha */
 }
+
+header {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+header img {
+  width: 50px;
+  height: auto;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+
 
 @keyframes anima1 {
 
@@ -61,7 +83,7 @@ nav ul{
 }
 
 nav a{
-    color: #D4AF37;
+    color: #555;
     text-decoration: none;
     margin-left: 15px;
     margin-right: 10px;
@@ -76,8 +98,10 @@ main{
 }
 
 main a{
-    color: #D4AF37;
+    color: #555;
     text-decoration: none; 
+    font-weight: 800;
+
 }
 
 main a:hover {
@@ -177,16 +201,16 @@ main img:hover{
 
 /*Estilos para footer*/
 
-footer{
-    background-color: #B22222;
-    color: #D4AF37;
-    text-align: center;
-    padding: 20px 0px;
-    animation: anima2 15s linear 3s;
-}
-
-footer p:hover {
-    color: #6B8E23; /* matcha */
+footer {
+  font-family: 'Lora', serif;
+  background-color: white;
+  border-top: 1px solid #eee;
+  text-align: center;
+  padding: 2px;
+  margin: 40px auto 0 auto; 
+  font-size: 0.9rem;
+  color: #0a0a0a;
+  width: 90vw;
 }
 
 @keyframes anima2 {
