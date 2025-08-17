@@ -1,52 +1,388 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descubre la comida típica japonesa, sus platos emblemáticos y su significado cultural.">
-    <link rel="stylesheet" href="japonesa.css">
-    <link rel="icon" type="image/png" href="img/japan.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-    <title>Comida Tipica Japonesa</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comida Típica Japonesa</title>
+  
+  <!-- Google Fonts (Montserrat + Kaisei Decol) -->
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
+  
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: url('img/background-desafio2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 150vh;
+      margin: 0;
+      padding: 0 10px;
+      color: #1C1C1C;
+    }
+
+    h1, h2, h3, h4 {
+      text-align: center;
+      color: #1C1C1C;
+    }
+
+    /* Header fijo */
+    header {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img.logo {
+      width: 50px;
+      height: auto;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 1.8rem;
+      color: #333;
+      margin: 0;
+    }
+
+    p.intro {
+      max-width: 1100px;
+      margin: 40px auto 30px auto;
+      font-size: 1.5rem;
+      line-height: 1.18;
+      color: #2d2320;
+      font-family: 'Lora', serif;
+      text-align: center;
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    main.platos {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto 50px auto;
+    }
+
+    article.plato {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex-basis: 32%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      min-height: 520px;
+    }
+
+    article.plato:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+    }
+
+    article.plato h2 a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    article.plato h2 a:hover {
+      color: #6B8E23;
+    }
+
+    article.plato img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    article.plato img:hover {
+      transform: scale(0.95) translate(-10px) rotate(-5deg);
+    }
+
+    article.plato p {
+      flex-grow: 1;
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    a.more-info {
+      background-color: #B22222;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+      align-self: center;
+      width: 140px;
+      text-align: center;
+    }
+
+    a.more-info:hover {
+      background-color: #6B8E23;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px 20px;
+      text-align: center;
+      font-family: 'Kaisei Decol', serif;
+      color: #333;
+      margin-top: 40px;
+      border-top: 2px solid #8B0000;
+      font-size: 0.85rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    footer .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    footer form {
+      margin-bottom: 15px;
+    }
+
+    footer form h3 {
+      margin-bottom: 8px;
+      color: #8B0000;
+      font-size: 1rem;
+    }
+
+    footer form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    footer form input[type="email"] {
+      padding: 6px;
+      width: 80%;
+      max-width: 350px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    footer form button {
+      background-color: #8B0000;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+
+    footer form button:hover:not(:disabled) {
+      background-color: #550000;
+    }
+
+    footer form button:disabled {
+      background-color: #444;
+      cursor: default;
+    }
+
+    footer nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 0.85rem;
+    }
+
+    footer nav ul li a {
+      color: #8B0000;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Redes sociales */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 15px 0 25px 0;
+    }
+
+    .social-icons a svg {
+      transition: fill 0.3s ease;
+      cursor: pointer;
+      fill: #8B0000;
+    }
+
+    .social-icons a:hover svg {
+      fill: #6B8E23; /* color verde oliva para hover */
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 900px) {
+      main.platos {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      article.plato {
+        flex-basis: 90%;
+        min-height: auto;
+      }
+      a.more-info {
+        width: auto;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      header img.logo {
+        width: 40px;
+      }
+      article.plato img {
+        height: 180px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <img src="img/headerlogo1.png" alt="gato japones de la suerte" class="logo">
-        <h1>Comida Tipica Japonesa</h1>
-    </header>
+  <header>
+    <img src="img/headerlogo1.png" alt="gato japones de la suerte" class="logo" />
+    <h1>Comida Típica Japonesa</h1>
+  </header>
 
-    <p class="intro">La gastronomía japonesa es reconocida mundialmente por su delicadeza, variedad y tradición. En esta página descubrirás los platos más emblemáticos de Japón, sus ingredientes principales y el significado cultural detrás de cada receta. ¡Acompáñanos en este viaje culinario!</p>
+  <p class="intro">
+    La gastronomía japonesa es reconocida mundialmente por su delicadeza, variedad y tradición. En esta página descubrirás los platos más emblemáticos de Japón, sus ingredientes principales y el significado cultural detrás de cada receta. ¡Acompáñanos en este viaje culinario!
+  </p>
 
-    <main class="platos">
-        <article class="plato">
-            <h2><a href="ramen.html">Ramen</a></h2>
-            <img src="img/ramen.jpg" alt="Plato de Ramen">
-            <p>El ramen es una sopa de fideos que se ha convertido en un símbolo de la cultura japonesa. Existen muchas variaciones, incluyendo caldos con sabores de pollo, res, cerdo y vegetales.</p>
-            <a href="ramen.html" class="more-info">Ir al artículo</a>
-            <a href="#" class="more-info" target="_blank">Ir al artículo</a>
+  <main class="platos">
+    <article class="plato">
+      <h2><a href="ramen.html">Ramen</a></h2>
+      <img src="img/ramen.jpg" alt="Plato de Ramen" />
+      <p>
+        El ramen es una sopa de fideos que se ha convertido en un símbolo de la cultura japonesa. Existen muchas variaciones, incluyendo caldos con sabores de pollo, res, cerdo y vegetales.
+      </p>
+  <a href="ramen.html" class="more-info" target="_blank" rel="noopener noreferrer">Ir al artículo</a>
+    </article>
 
-        </article>
+    <article class="plato">
+      <h2><a href="sushi.html">Sushi</a></h2>
+      <img src="img/sushi.jpg" alt="Plato de Sushi" />
+      <p>
+        El sushi es uno de los platos más conocidos fuera de Japón. Consiste en arroz avinagrado acompañado de pescado crudo, mariscos o vegetales. Se sirve a menudo con salsa de soja y wasabi.
+      </p>
+  <a href="sushi.html" class="more-info" target="_blank" rel="noopener noreferrer">Ir al artículo</a>
+    </article>
 
-        <article class="plato">
-            <h2><a href="#">Sushi</a></h2>
-            <img src="img/sushi.jpg" alt="Plato de Sushi">
-            <p>El sushi es uno de los platos más conocidos fuera de Japón. Consiste en arroz avinagrado acompañado de pescado crudo, mariscos o vegetales. Se sirve a menudo con salsa de soja y wasabi.</p>
-            <a href="#" class="more-info" target="_blank">Ir al artículo</a>
-        </article>
+    <article class="plato">
+      <h2><a href="takoyaki.html">Takoyaki</a></h2>
+      <img src="img/takoyaki.png" alt="Plato de Takoyaki" />
+      <p>
+        El takoyaki es un popular aperitivo callejero japonés hecho de una masa suave rellena de trozos de pulpo. Se cocina en moldes redondos y se sirve cubierto con salsa especial, mayonesa y copos de bonito seco.
+      </p>
+  <a href="takoyaki.html" class="more-info" target="_blank" rel="noopener noreferrer">Ir al artículo</a>
+    </article>
+  </main>
 
-        <article class="plato">
-            <h2><a href="#">Takoyaki</a></h2>
-            <img src="img/takoyaki.png" alt="Plato de Takoyaki">
-            <p>El takoyaki es un popular aperitivo callejero japonés hecho de una masa suave rellena de trozos de pulpo. Se cocina en moldes redondos y se sirve cubierto con salsa especial, mayonesa y copos de bonito seco.</p>
-            <a href="#" class="more-info" target="_blank">Ir al artículo</a>
-        </article>
-    </main>
+  <footer>
+    <div class="footer-content">
+      <p>Copyright © 2025 | Comida Típica Japonesa | Todos los derechos reservados</p>
 
-    <footer>
-        <p>&copy; 2025 Comida Tipica Japonesa. Todos los derechos reservados.</p>
-    </footer>
+      <form id="newsletter-form">
+        <h3>Suscríbete a nuestro Newsletter</h3>
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" required placeholder="Introduce tu email" /><br />
 
+        <button type="submit" id="subscribe-button">Suscribirse</button>
+      </form>
+
+      <!-- Redes sociales -->
+      <div class="social-icons">
+        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook" rel="noopener noreferrer">
+          <!-- Facebook SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54v-2.22c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.25 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34v7.03C18.34 21.25 22 17.09 22 12.07z" fill="#8B0000"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram" rel="noopener noreferrer">
+          <!-- Instagram SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.505 4.505 0 0 0 12 7.5zm0 7A2.5 2.5 0 1 1 14.5 12 2.503 2.503 0 0 1 12 14.5zm4.75-7.88a1.125 1.125 0 1 1-1.125-1.125 1.124 1.124 0 0 1 1.125 1.125z" fill="#8B0000"/>
+          </svg>
+        </a>
+        <a href="https://twitter.com/login" target="_blank" aria-label="Twitter" rel="noopener noreferrer">
+          <!-- Twitter SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.46 5.92c-.77.35-1.6.59-2.47.7a4.3 4.3 0 0 0 1.88-2.37 8.59 8.59 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.29 3.9A12.13 12.13 0 0 1 3.1 4.86a4.28 4.28 0 0 0 1.32 5.71c-.7-.02-1.36-.21-1.94-.53v.05a4.28 4.28 0 0 0 3.43 4.19c-.33.09-.68.14-1.04.14-.25 0-.5-.02-.74-.07a4.29 4.29 0 0 0 4 2.98A8.6 8.6 0 0 1 2 19.54a12.13 12.13 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.37-.01-.56a8.72 8.72 0 0 0 2.15-2.22z" fill="#8B0000"/>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/" target="_blank" aria-label="TikTok" rel="noopener noreferrer">
+          <!-- TikTok SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 2v15.5a4.5 4.5 0 1 0 4.5-4.5V7h3a6 6 0 1 1-6 6V2H9z" fill="#8B0000"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube" rel="noopener noreferrer">
+          <!-- YouTube SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C15.5 5 12 5 12 5s-3.5 0-6.9.1c-.4 0-1.3 0-2.1.9-.6.6-.8 2-.8 2S2 9.7 2 11.3v1.4c0 1.6.2 3.3.2 3.3s.2 1.4.8 2c.8.8 1.8.8 2.2.9 1.6.1 6.8.1 6.8.1s3.5 0 6.9-.1c.4 0 1.3 0 2.1-.9.6-.6.8-2 .8-2s.2-1.7.2-3.3v-1.4c0-1.6-.2-3.3-.2-3.3zM10 14.5v-5l4 2.5-4 2.5z" fill="#8B0000"/>
+          </svg>
+        </a>
+      </div>
+
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#" id="privacidad" onclick="alert('Nuestra Política de Privacidad: Tus datos están protegidos y no se comparten con terceros.')">Política de Privacidad</a></li>
+          <li><a href="#" id="aviso-legal" onclick="alert('Aviso Legal: Este sitio es un proyecto educativo sin fines de lucro.')">Aviso Legal</a></li>
+          <li><a href="#" id="politica-cookies" onclick="alert('Política de Cookies: Usamos cookies solo para mejorar tu experiencia de navegación.')">Política de Cookies</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>

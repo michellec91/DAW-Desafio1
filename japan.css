@@ -1,280 +1,401 @@
-
-h1, h2, h3, h4{
-    text-align: center;
-    color: #1C1C1C;
+.caja2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.caja21, .caja22 {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.caja21 p, .caja22 p {
+  text-align: justify;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.caja21 h1, .caja21 h2, .caja22 h2 {
+  text-align: center;
+  width: 100%;
+}
+/* ===== CAJA CALENDARIO GASTRONÓMICO ===== */
+.caja32 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.caja32 h2 {
+  text-align: center;
+  width: 100%;
+}
+.caja32 p {
+  text-align: justify;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Other styles can follow here */
+
+/* Enlaces de novedades en aside */
+.novedad-link {
+  color: #8B0000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.novedad-link:hover {
+  color: #6B8E23;
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* Centrar imagen festival ramen */
+.caja222 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.caja222 img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+/* ===== FUENTES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Montserrat:wght@400;700;800&display=swap');
+
+/* ===== ESTILO GLOBAL ===== */
 body {
-    font-family: Montserrat, sans-serif;
-    background-color: #FF543B;
-    min-height: 150vh;  
-    background-size: cover;
-    background-position: center;
+  font-family: 'Montserrat', sans-serif;
+  background: url('img/background-desafio2.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: #1C1C1C;
 }
 
-/*Estilos para nav*/
-
-nav{
-    display: flex;
-    flex-basis: 100%;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #B22222;
-    animation: anima1 15s linear 3s;
+/* ===== TITULARES ===== */
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #1C1C1C;
 }
 
-nav a:hover {
-    color: #6B8E23; /* matcha */
-}
-
+/* ===== HEADER ===== */
 header {
   background-color: white;
   padding: 20px;
   margin-top: 20px;
   display: flex;
   align-items: center;
-  gap: 25px;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-header img {
+header img.logo {
   width: 50px;
   height: auto;
 }
 
 header h1 {
-  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   letter-spacing: 2px;
   font-size: 1.8rem;
+  margin: 0;
+}
+
+/* ===== MAIN CONTAINER ===== */
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* ===== ASIDE - CAJAS LATERALES ===== */
+aside {
+  flex: 1;
+}
+
+/* Centrado de títulos y listas en aside */
+.caja12 h2 {
+  text-align: center;
+}
+.caja12 ul {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+/* Ajuste para iconos de redes sociales en aside */
+.caja12 div[style*="display:flex"] a svg {
+  transition: transform 0.2s;
+}
+.caja12 div[style*="display:flex"] a:hover svg {
+  transform: scale(1.15);
+  filter: drop-shadow(0 2px 6px #8B000044);
+}
+
+/* Formulario newsletter en aside */
+aside form {
+  margin: 18px 0 0 0;
+  padding: 12px 10px 18px 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  text-align: center;
+}
+aside form h3 {
+  margin-bottom: 8px;
+  color: #8B0000;
+  font-size: 1rem;
+  text-align: center;
+}
+aside form label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  display: block;
+}
+aside form input[type="email"] {
+  padding: 6px;
+  width: 80%;
+  max-width: 350px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+aside form button {
+  background-color: #8B0000;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+}
+
+.caja1, .caja3 {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.caja11 img,
+.caja111 img,
+.caja321 img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== CAJA PRINCIPAL DE CONTENIDO ===== */
+.caja2 {
+  flex: 3;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.caja2 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ===== TÍTULOS Y PÁRRAFOS ===== */
+article h2 {
+  margin-top: 25px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+article p {
+  line-height: 1.7;
+  font-size: 1.05rem;
   color: #333;
+  margin-bottom: 15px;
 }
 
-
-
-@keyframes anima1 {
-
-    0%{
-        background-color: #B22222;
-    }
-
-    50%{
-        background-color: #D4AF37;
-    }
-
-    100%{
-        background-color: #800000;
-    }    
+/* ===== ENLACES ===== */
+a {
+  color: #8B0000;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-nav img{
-    width: 55px;
-    height: 55px;
-    transition: transform 1.5s;
-    margin: 10px 0px;
+a:hover {
+  text-decoration: underline;
+  color: #6B8E23;
 }
 
-nav img:hover{
-    transform: rotateY(180deg);
+/* ===== FOOTER ===== */
+footer {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 15px 20px;
+  text-align: center;
+  font-family: 'Lora', serif;
+  color: #333;
+  margin-top: 40px;
+  border-top: 2px solid #8B0000;
+  font-size: 0.9rem;
 }
 
-nav ul{
-     display: flex;
-    align-items: center;
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 1024px) {
+  main {
+    flex-direction: column;
+  }
+  /* Ajuste para formulario newsletter en aside en móvil */
+  aside form {
+    width: 95%;
+    margin: 18px auto 0 auto !important;
+    padding: 12px 4vw 18px 4vw !important;
+    box-sizing: border-box;
+  }
+  aside form input[type="email"] {
+    width: 95% !important;
+    min-width: 0;
+  }
 }
-
-nav a{
-    color: #555;
-    text-decoration: none;
-    margin-left: 15px;
-    margin-right: 10px;
-}
-
-/*Estilos para main*/
-
-main{
-    display: flex;
-    flex-wrap: wrap;
-
-}
-
-main a{
-    color: #555;
-    text-decoration: none; 
-    font-weight: 800;
-
-}
-
-main a:hover {
-    color: #6B8E23; /* matcha */
-}
-
-main img{
-    width: 75%;
-    transition: transform 3s;
-    display: block;
-    margin: 0 auto; 
-}
-
-main img:hover{
-    transform: scale(0.95) translate(-10px) rotate(-5deg);
-}
-
-/*Caja1*/
-
-.caja1{
-    flex-basis: 25%;
-    justify-content: space-between;
-    align-content: start;
-}
-
-.caja11 h2{
-    margin: 20px 15px;
-}
-
-.caja11 li{
-    margin: 20px 15px;
-}
-
-.caja11 img{
-    margin: 0px 15px;
-    position: relative;
-    left: 5px;
-}
-
-.caja12 li{
-    margin: 20px 15px;
-}
-
-.caja12 h2{
-    margin: 20px 0px;
-}
-
-
-/*Caja2*/
-
-.caja2{
-    flex-basis: 55%;
-    justify-content: space-between;
-    align-content: start;
-}
-
-.caja2 p{
-    margin: 20px 10px;
-}
-
-.caja212{
-    margin: 20px;
-}
-
-.caja222{
-    margin: 20px;
-}
-
-.caja2 h1{
-    margin: 20px 0px;
-}
-
-/*Caja3*/
-
-.caja3{
-    flex-basis: 20%;
-    justify-content: space-between;
-    align-content: start;
-}
-
-.caja3 li{
-    margin: 15px;
-}
-
-.caja3 p{
-    margin: 15px;
-}
-
-.caja3 h2{
-    margin: 20px 15px;
-}
-
-.caja3 img{
-    left: 25px;
-    position: relative;
-}
-
-/*Estilos para footer*/
 
 footer {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px 30px;
   font-family: 'Lora', serif;
-  background-color: white;
-  border-top: 1px solid #eee;
-  text-align: center;
-  padding: 2px;
-  margin: 40px auto 0 auto; 
+  color: #333;
+  margin-top: 40px;
+  border-top: 2px solid #8B0000;
+  font-size: 0.8rem;
+  text-align: justify;
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+footer .footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+footer p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+footer form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+footer form h3 {
+  flex-basis: 100%;
+  margin-bottom: 8px;
+  color: #8B0000;
+  font-size: 1rem;
+  text-align: left;
+}
+
+footer form label {
+  flex-basis: 100%;
+  font-weight: 600;
+  margin-bottom: 4px;
   font-size: 0.9rem;
-  color: #0a0a0a;
-  width: 90vw;
 }
 
-@keyframes anima2 {
-
-    0%{
-        background-color: #B22222;
-    }
-
-    50%{
-        background-color: #D4AF37;
-    }
-
-    100%{
-        background-color: #800000;
-    }    
+footer form input[type="email"] {
+  padding: 6px;
+  flex-grow: 1;
+  min-width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
 }
 
+footer form button {
+  background-color: #8B0000;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
 
+footer nav.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 0.85rem;
+  margin: 0;
+}
 
-@media screen and (min-width: 1px) and (max-width:760px) {
+footer nav.footer-nav ul li a {
+  color: #8B0000;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
 
-    main{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+footer nav.footer-nav ul li a:hover {
+  text-decoration: underline;
+}
 
-    header{
-        flex-wrap: wrap;
-    }
-
-    nav{
-
-        flex-wrap: wrap;
-        justify-content: start;
-    }
-
-    footer{
-        flex-wrap: wrap;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    nav a {
-        padding: 5px 0;
-    }
-
-    .caja1, .caja2, .caja3 {
-        flex-basis: 100%;
-    }
-
-    body {
-        padding: 10px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    .caja11 img, .caja3 img {
-        left: 0;
-        margin: 0 auto;
-    }
-
- 
+/* Responsive for footer */
+@media screen and (max-width: 600px) {
+  footer .footer-content {
+    gap: 10px;
+  }
+  footer nav.footer-nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+  footer form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  footer form input[type="email"], footer form button {
+    width: 100%;
+    min-width: 0;
+  }
 }
